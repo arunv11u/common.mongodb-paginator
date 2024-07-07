@@ -1,0 +1,63 @@
+{
+	"name": "@arunvaradharajalu/common.mongodb-paginator",
+	"version": "1.0.0",
+	"description": "This package contains mongodb pagination for retrieving large data in parts.",
+	"main": "./build/index.js",
+	"types": "./build/index.d.ts",
+	"files": [
+		"build/**/*"
+	],
+	"scripts": {
+		"clean": "rimraf build",
+		"build": "npm run clean && tsc --project tsconfig.build.json",
+		"test": "jest --watchAll --verbose --no-cache --detectOpenHandles --env=node --coverage"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node",
+		"globalSetup": "./test/global-setup.ts",
+		"globalTeardown": "./test/global-teardown.ts",
+		"setupFilesAfterEnv": [
+			"./test/setup.ts"
+		],
+		"roots": [
+			"<rootDir>/test"
+		],
+		"clearMocks": true,
+		"reporters": [
+			"default",
+			[
+				"./node_modules/jest-html-reporter",
+				{
+					"pageTitle": "MongoDB Paginator Test Report"
+				}
+			]
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/arunv11u/common.mongodb-paginator.git"
+	},
+	"keywords": [
+		"mongodb-paginator"
+	],
+	"author": "Arun Varadharajalu",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/arunv11u/common.mongodb-paginator/issues"
+	},
+	"homepage": "https://github.com/arunv11u/common.mongodb-paginator#readme",
+	"devDependencies": {
+		"@faker-js/faker": "^7.6.0",
+		"@types/jest": "^29.5.12",
+		"jest-html-reporter": "^3.10.2",
+		"mongodb-memory-server": "^8.12.2",
+		"rimraf": "^5.0.7",
+		"ts-jest": "^29.1.4"
+	},
+	"dependencies": {
+		"@arunvaradharajalu/common.errors": "^1.1.0",
+		"@arunvaradharajalu/common.mongodb-api": "^1.1.1",
+		"mongodb": "^6.7.0"
+	}
+}
